@@ -54,20 +54,34 @@ const questions = inquirer.prompt([
 
 app.js
 
-function convertToMarkdown(data){
-    convert = JSON.stringify(data);
-    return convert
+function convertToMarkdown(data) {
+    readLicense = `## Licenses\n${data.License}\n`;
+    readBadge = getBadge(readLicense);
+    readTitle = `# ${data.Title}`+ " " + readBadge + `\n`;
+    readTable = tableOfContents();
+    readDesc = `## Description\n${data.Description}\n`;
+    readInst = `## Installation\n${data.Installation}\n`;
+    readUsage = `## Usage\n${data.Usage}\n`;
+    readContrib = `## Contributing\n${data.Contributing}\n`;
+    readTest = `## Tests\n${data.Tests}\n`;
+    readGit = `## Questions\nMy GitHub Profile: [${data.github}](https://github.com/${data.github})\n`;
+    readEmail = `\nMy Email: [${data.email}](mailto:${data.email})`;
+    
+    return readTitle + readTable + readDesc + readInst + readUsage + readContrib + readTest + readLicense + readGit + readEmail;
 }
-function generateMarkdown(data){
-fs.writeFile("README2.md", convertToMarkdown(data), (err) => 
-err ? console.log(err) : console.log("Success!"))
+
+function generateMarkdown(data) {
+  fs.writeFile("README2.md", convertToMarkdown(data), (err) =>
+    err ? console.log(err) : console.log("Success!")
+  );
 }
 
 module.exports = {
-    fs,
-    convertToMarkdown,
-    generateMarkdown
-}
+  fs,
+  // getBadge,
+  convertToMarkdown,
+  generateMarkdown,
+};
 
 
 I choose a license for my application from a list of options
@@ -96,8 +110,9 @@ if (readLicense.includes("MIT")) {
   return badges[0];
 } else if (readLicense.includes("GNU")) {
   return badges[1];
-}
-};
+}else{
+    return
+}};
 
 I enter my GitHub username
 added to the section of the README entitled Questions, with a link to my GitHub profile
@@ -119,8 +134,14 @@ I click on the links in the Table of Contents
 I am taken to the corresponding section of the README
 
 function tableOfContents(){
-    TOC = 
-    "[Installation](#installation)
-     [Usage](#usage)"
-     return TOC;
+  TOC = 
+  "\n## Table of Contents\n\n"
+  + "[Description](#description)\n\n"
+  + "[Installation](#installation)\n\n"
+  + "[Usage](#usage)\n\n"
+  + "[Contributing](#contributing)\n\n"
+  + "[Tests](#tests)\n\n"
+  + "[Licenses](#licenses)\n\n"
+  + "[Questions](#questions)\n\n"
+   return TOC;
 }
