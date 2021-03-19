@@ -45,12 +45,11 @@ inquirer.prompt([
     },
     {
         type: "input",
-        message: "Enter email addres: ",
+        message: "Enter email address: ",
         name: "email",
     }, 
 ])
 .then((data) => {
     console.log(data)
-    // console.log(app.convertToMarkdown(data));
     app.generateMarkdown(data)
 });

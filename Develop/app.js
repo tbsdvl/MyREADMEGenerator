@@ -30,7 +30,9 @@ function convertToMarkdown(data) {
     readUsage = `## Usage\n${data.Usage}\n`;
     readContrib = `## Contributing\n${data.Contributing}\n`;
     readTest = `## Tests\n${data.Tests}\n`;
-    return readTitle + readDesc + readInst + readUsage + readContrib + readTest + readLicense;
+    readGit = `## Questions\n[My GitHub Profile](https://github.com/${data.github})\n`;
+    readEmail = `\nMy Email:[${data.email}](mailto:${data.email})`;
+    return readTitle + readDesc + readInst + readUsage + readContrib + readTest + readLicense + readGit + readEmail;
 }
 
 function generateMarkdown(data) {
