@@ -3,16 +3,12 @@ a command-line application that accepts user input
 I am prompted for information about my application repository
 README.md is generated with the title of my project and sections entitled Description, Table of Contents, Installation, Usage, License, Contributing, Tests, and Questions
 
+const inquirer = require("inquirer");
+
 I enter my project title
 is displayed as the title of the README
 
-const questions = inquirer.prompt([
-    {
-        type: "input",
-        message: "Project Title:",
-        name: "Title",
-    }
-])
+
 
 I enter a description, installation instructions, usage information, contribution guidelines, and test instructions
 this information is added to the sections of the README entitled Description, Installation, Usage, Contributing, and Tests
@@ -24,9 +20,55 @@ const questions = inquirer.prompt([
         name: "Title",
     },
     {
-        type: "
+        type: "input",
+        message: "Description",
+        name: "Description",
+    },
+    {
+        type: "input",
+        message: "Installation",
+        name: "Installation",
+    },
+    {
+        type: "input",
+        message: "Usage",
+        name: "Usage",
+    },
+    {
+        type: "input",
+        message: "Contributing",
+        name: "Contributing",
+    },
+    {
+        type: "input",
+        message: "Tests",
+        name: "Tests",
     }
 ])
+.then( (data) => {
+    console.log(data),
+    generateMarkdown(data)
+});
+
+
+
+app.js
+
+function convertToMarkdown(data){
+    convert = JSON.stringify(data);
+    return convert
+}
+function generateMarkdown(data){
+fs.writeFile("README2.md", convertToMarkdown(data), (err) => 
+err ? console.log(err) : console.log("Success!"))
+}
+
+module.exports = {
+    fs,
+    convertToMarkdown,
+    generateMarkdown
+}
+
 
 I choose a license for my application from a list of options
 a badge for that license is added near the top of the README and a notice is added to the section of the README entitled License that explains which license the application is covered under
