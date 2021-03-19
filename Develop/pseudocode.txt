@@ -71,13 +71,55 @@ module.exports = {
 
 
 I choose a license for my application from a list of options
+{
+    type: "checkbox",
+    message: "Choose a license: ",
+    name: "License",
+    choices: ["MIT license", "Mozilla Public License 2.0", "Apache License 2.0", "GNU General Public License"],
+}
+
 a badge for that license is added near the top of the README and a notice is added to the section of the README entitled License that explains which license the application is covered under
+
+function getBadge(readLicense){
+const badges = [
+  "[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0",
+  "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)",
+  "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)",
+  "[![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)",
+];
+
+if (readLicense.includes("MIT")) {
+  return badges[2];
+} else if (readLicense.includes("Mozilla")) {
+  return badges[3];
+} else if (readLicense.includes("Apache")) {
+  return badges[0];
+} else if (readLicense.includes("GNU")) {
+  return badges[1];
+}
+};
 
 I enter my GitHub username
 added to the section of the README entitled Questions, with a link to my GitHub profile
+{
+    type: "input",
+    message: "GitHub username: ",
+    name: "github",
+},
 
 I enter my email address
 added to the section of the README entitled Questions, with instructions on how to reach me with additional questions
+{
+    type: "input",
+    message: "Enter email addres: ",
+    name: "email",
+},
 
 I click on the links in the Table of Contents
 I am taken to the corresponding section of the README
+
+{
+    type: "list",
+    name: "Table",
+    choices: "
+}
