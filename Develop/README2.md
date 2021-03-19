@@ -1,13 +1,17 @@
-# Triston[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+# Triston [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ## Description
-rahsjtd
+Burns
 ## Installation
-grsfhjugjfyht
+Made
 ## Usage
-gjfhgd
+A
 ## Contributing
-khmjghnfb
+README
 ## Tests
-hmjgnfhbg
+Generator
 ## Licenses
 MIT license
+## Questions
+[My GitHub Profile](https://github.com/tbsdvl)
+
+My Email:[tristonburns97@gmail.com](mailto:tristonburns97@gmail.com)
