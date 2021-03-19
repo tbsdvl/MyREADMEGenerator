@@ -1,5 +1,18 @@
 const fs = require("fs");
 
+function tableOfContents(){
+  TOC = 
+  "\n## Table of Contents\n\n"
+  + "[Description](#description)\n\n"
+  + "[Installation](#installation)\n\n"
+  + "[Usage](#usage)\n\n"
+  + "[Contributing](#contributing)\n\n"
+  + "[Tests](#tests)\n\n"
+  + "[Licenses](#licenses)\n\n"
+  + "[Questions](#questions)\n\n"
+   return TOC;
+}
+
 function getBadge(readLicense){
 const badges = [
   "[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0",
@@ -25,14 +38,16 @@ function convertToMarkdown(data) {
     readLicense = `## Licenses\n${data.License}\n`;
     readBadge = getBadge(readLicense);
     readTitle = `# ${data.Title}`+ " " + readBadge + `\n`;
+    readTable = tableOfContents();
     readDesc = `## Description\n${data.Description}\n`;
     readInst = `## Installation\n${data.Installation}\n`;
     readUsage = `## Usage\n${data.Usage}\n`;
     readContrib = `## Contributing\n${data.Contributing}\n`;
     readTest = `## Tests\n${data.Tests}\n`;
-    readGit = `## Questions\n[My GitHub Profile](https://github.com/${data.github})\n`;
-    readEmail = `\nMy Email:[${data.email}](mailto:${data.email})`;
-    return readTitle + readDesc + readInst + readUsage + readContrib + readTest + readLicense + readGit + readEmail;
+    readGit = `## Questions\nMy GitHub Profile: [${data.github}](https://github.com/${data.github})\n`;
+    readEmail = `\nMy Email: [${data.email}](mailto:${data.email})`;
+    
+    return readTitle + readTable + readDesc + readInst + readUsage + readContrib + readTest + readLicense + readGit + readEmail;
 }
 
 function generateMarkdown(data) {
@@ -43,7 +58,7 @@ function generateMarkdown(data) {
 
 module.exports = {
   fs,
-  getBadge,
+  // getBadge,
   convertToMarkdown,
   generateMarkdown,
 };
