@@ -7,3 +7,5 @@ The application is built to save time for GitHub users who need a quick alternat
 This application is designed to save time creating README files and displaying them in a GitHub repository.
 
 ## Usage
+
+![Sample Video](
