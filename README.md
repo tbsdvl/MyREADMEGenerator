@@ -8,4 +8,4 @@ This application is designed to save time creating README files and displaying t
 
 ## Usage
 
-![Sample Video](
+![Sample Video](assets/
