@@ -8,4 +8,4 @@ This application is designed to save time creating README files and displaying t
 
 ## Usage
 
-![Sample Video](assets/
+![Sample Video](assets/READMEGenerator.webm)
