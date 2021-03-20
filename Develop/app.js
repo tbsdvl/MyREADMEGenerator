@@ -47,7 +47,7 @@ function convertToMarkdown(data) {
   readUsage = `## Usage\n${data.Usage}\n`;
   readContrib = `## Contributing\n${data.Contributing}\n`;
   readTest = `## Tests\n${data.Tests}\n`;
-  readGit = `# Questions\nMy GitHub Profile: [${data.github}](https://github.com/${data.github})\n`;
+  readGit = `# Questions\n You may send me questions via GitHub or email. Please include your name, a subject, and be as clear as possible when detailing your issues. I will get back to you as soon as possible.\n\nMy GitHub Profile: [${data.github}](https://github.com/${data.github})\n`;
   readEmail = `\nMy Email: [${data.email}](mailto:${data.email})`;
 
   return (
@@ -66,7 +66,7 @@ function convertToMarkdown(data) {
 }
 
 function generateMarkdown(data) {
-  fs.writeFile("README2.md", convertToMarkdown(data), (err) =>
+  fs.writeFile("README.md", convertToMarkdown(data), (err) =>
     err ? console.log(err) : console.log("Success!")
   );
 }
